@@ -4,6 +4,16 @@
         <title>Google</title>
         <meta charset="UTF-8">
         <style>
+            body {
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+            }
+            header {
+                display: flex;
+                position: relative;
+                justify-content: flex-end;
+                align-items: center;
+            }
             .parent {
                 display: flex;
                 align-items: center;
@@ -13,9 +23,9 @@
             .child {
                 position: absolute;
                 display: grid;
-                justify-content: center;
                 width: 1000px;
-                background: lightgray;
+                border: lightgray;
+                background: #fff;
                 grid-template-rows: auto;
                 top: 50%;
                 left: 50%;
@@ -23,21 +33,19 @@
                 row-gap: 5px;
                 }
 
-            .search-box {
-                width: auto;
-                height: 30px;
-            }
-
             .text-area {
-                width: 700px;
-                height: 20px;
-                border-radius: 15px;
+                width: 600px;
+                height: 30px;
+                margin: 20px;
+                border-radius: 30px;
                 border: 1px #bbb solid;
                 padding: 5px 5px 5px 2px;
                 top: 0;
                 left: 0;
                 z-index: 5;
-                text-indent: 2em;
+                text-indent: 3em;
+                font-size: 16px;
+                color: #111;
                 background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-512.png");
                 background-position: left;
                 background-repeat: no-repeat;
@@ -48,35 +56,110 @@
                 display: flex;
             }
 
+            .child-item {
+                justify-content: center;
+                align-items: center;
+            }
+
             #search-icon {
                 left: 5px;
             }
 
             .text-area:focus {
                 outline: none;
-                box-shadow: 0 0 rgba(0,0,0,0.19);
-            }
-
-            .text-area:hover {
                 box-shadow: 0 0 10px rgba(0,0,0,0.19);
             }
+
+            .text-area:hover, .search-button:hover {
+                box-shadow: 0 0 10px rgba(0,0,0,0.19);
+            }
+
+            .search-button {
+                height: 15px;
+                border: 0px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+                background-color: #fafafa;
+                align-self: center;
+                margin: 5px;
+                padding: 10px;
+                text-align: center;
+                color: #333;
+                vertical-align: center;
+            }
+
+            .link {
+                padding: 10px;
+                margin: 5px;
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                color: #333;
+            }
+
+            .link:hover {
+                text-decoration: underline;
+            }
+            
+            #google-apps-img {
+                height: auto;
+                width: auto;
+                max-width: 22px; 
+                max-height: 22px;
+            }
+        
+        
+            #google-apps-link:hover {
+                background-color: #eee;
+                border-radius: 50%;
+            }
+
+            #sign-in-button {
+                background-color: rgb(77, 125, 216);
+                color: white;
+                border-radius: 5px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            #sign-in-button:hover {
+                background-color: cornflowerblue;
+                text-decoration: none;
+            }
+
+
+
    
         </style>
     </head>
     <body>
+        <header>
+            <a class="link" href="https://gmail.com">Gmail</a>
+            <a class="link" href="#">Images</a>
+            <a class="link" id="google-apps-link" href="#">
+                <img id="google-apps-img" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_apps_48px-512.png" alt="Google Apps">
+            </a>
+            <a class="link" href="#" id="sign-in-button">Sign In</a>
+            
+
+        </header>
         <div class="parent">
             <div class="child">
-                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
-                <form action="#">
-                    <input class="text-area" type="text">
- 
-                    
-                    <div>
-                        <button type="submit">Google Search</button>
-                        <button type="submit">I'm Feeling Lucky</button>
-                    </div>
-
-                </form>
+                <div class="child-item">
+                    <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
+                </div>
+                <div class="child-item">
+                    <form action="#">
+                        <input class="text-area" type="text">
+                        
+                        <div class="child-item">
+                            <a class="search-button" href="#" type="submit">Google Search</a>
+                            <a class="search-button" href="#" type="submit">I'm Feeling Lucky</a>
+                        </div>
+    
+                    </form>
+                </div>          
             </div>
         </div>
     </body>
